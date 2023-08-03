@@ -9,7 +9,7 @@ const schemas = mongoose.Schema(
     email: {
       type: String,
       required: [true, "Please add lastname"],
-      unique: [true, "This email alreay taken!"],
+      unique: [true, "This email already taken!"],
     },
 
     password: {

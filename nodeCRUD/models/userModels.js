@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const schemas = mongoose.Schema(
   {
-    // user_id: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: "UserDetails",
-    // },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "valiationsSchema",
+    },
     firstname: {
       type: String,
       required: [true, "Please add firstname"],

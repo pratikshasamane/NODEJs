@@ -2,12 +2,9 @@ const asyncHandler = require("express-async-handler");
 const valiationsSchema = require("../models/validationModels");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-// const env = require("en")
 
 // Register User
 const registerUser = asyncHandler(async (req, res) => {
-  //   res.json({ message: "Register user" });
-
   const { username, email, password } = req.body;
 
   if (!username || !password || !email) {

@@ -1,18 +1,16 @@
 const express = require("express");
+const router = express.Router();
 const {
   getUsers,
   createUser,
   updateUser,
   deleteUser,
   getUserByID,
-  // getUserByEmail,
   searchUser,
 } = require("../controller/userController");
-// const validateToken = require("../middleware/validationToken");
+const validateToken = require("../middleware/validationToken");
 
-const router = express.Router();
-
-// router.use(validateToken);
+router.use(validateToken);
 
 router.route("/").get(getUsers).post(createUser);
 
@@ -22,7 +20,6 @@ router.route("/deleteUser/:id").delete(deleteUser);
 
 router.route("/getUserById/:id").get(getUserByID);
 
-// router.route("/getUserByEmail/:email").get(getUserByEmail);
 router.route("/search").get(searchUser);
 
 module.exports = router;

@@ -8,11 +8,11 @@ const app = express();
 const port = process.env.PORT || 8001;
 app.use(express.json());
 
-const userRouter = require("./routes/userRoutes");
 const userValidationRouter = require("./routes/userValidationRoutes");
+const userRouter = require("./routes/userRoutes");
 
-app.use("/api", userRouter);
 app.use("/api/validate", userValidationRouter);
+app.use("/api", userRouter);
 
 app.use(errorHandler);
 

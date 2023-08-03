@@ -7,7 +7,6 @@ const errorHandler = (err, req, res, next) => {
       res.json({
         title: "Validation Falied",
         message: err.message,
-        // stacktrace: err.stack,
       });
 
       break;
@@ -15,7 +14,6 @@ const errorHandler = (err, req, res, next) => {
       res.json({
         title: "Not Found",
         message: err.message,
-        // stacktrace: err.stack,
       });
       break;
 
@@ -23,7 +21,6 @@ const errorHandler = (err, req, res, next) => {
       res.json({
         title: "Unaunthorized",
         message: err.message,
-        // stacktrace: err.stack,
       });
       break;
 
@@ -31,7 +28,6 @@ const errorHandler = (err, req, res, next) => {
       res.json({
         title: "Forbidden",
         message: err.message,
-        // stacktrace: err.stack,
       });
       break;
 
