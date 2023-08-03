@@ -48,7 +48,6 @@ const registerUser = asyncHandler(async (req, res) => {
 
 // Logged in user
 const loginUser = asyncHandler(async (req, res) => {
-  console.log("In main");
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400);
@@ -56,7 +55,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 
   const user = await valiationsSchema.findOne({ email });
-  console.log(user);
+
   if (user && (await bcrypt.compare(password, user.password))) {
     const accesToken = jwt.sign(
       {
