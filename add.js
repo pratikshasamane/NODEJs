@@ -1,7 +1,23 @@
+// 1.
 const add = function (a, b) {
-  const sum = a + b;
-  return sum;
+  return a + b;
 };
 
-// console.log(sum(1, 2));
-module.exports = add;
+// module.exports = add;
+
+// 2.
+
+// module.export = function (a, b) {
+//   return a - b;
+// };
+
+//3. multiple exports
+
+const substract = (a, b) => {
+  return a - b;
+};
+
+module.export = {
+  add,
+  substract,
+};

@@ -2,7 +2,7 @@
 const add = require("./add.js");
 const superman = require("./superman.js");
 
-const a = add(1, 2);
+// const a = add(1, 2);
 // console.log(a);
 
 const super1 = require("./superman.js");
