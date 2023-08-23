@@ -1,0 +1,27 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "description": "This is take note app, which has all CRUD operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "take",
+    "notes",
+    "note",
+    "notes"
+  ],
+  "author": "Pratiksha Samane - Patil",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongodb": "^5.8.0",
+    "mongoose": "^7.4.3",
+    "nodemon": "^3.0.1"
+  }
+}

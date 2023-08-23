@@ -1,0 +1,30 @@
+Input:
+
+Creating a New Note:
+
+User enters the title and content of a new note in a form.
+Updating a Note:
+
+User selects a note to update.
+User modifies the title and/or content of the note in a form.
+Deleting a Note:
+
+User selects a note to delete.
+Output:
+
+Viewing All Notes:
+
+User sees a list of all notes.
+Each note displays its title and a preview of its content.
+Viewing a Specific Note:
+
+User clicks on a note to view its full content.
+Creating a New Note:
+
+User's new note is displayed in the list of notes.
+Updating a Note:
+
+User's updated note is displayed in the list of notes.
+Deleting a Note:
+
+The selected note is removed from the list of notes.
