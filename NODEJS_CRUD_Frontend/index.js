@@ -13,10 +13,7 @@ app.use(cors());
 const port = process.env.PORT || 8001;
 app.use(express.json());
 
-const userValidationRouter = require("./routes/userValidationRoutes");
 const userRouter = require("./routes/userRoutes");
-
-app.use("/api/validate", userValidationRouter);
 app.use("/api", userRouter);
 
 app.use(errorHandler);

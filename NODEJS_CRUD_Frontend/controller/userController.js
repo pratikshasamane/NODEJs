@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 //@route api/
 //@access private
 const getUsers = asyncHandler(async (req, res) => {
-  const getUsers = await users.find({ user_id: req.user.id });
+  const getUsers = await users.find({});
   res.status(200).json(getUsers);
 });
 
@@ -24,7 +24,6 @@ const createUser = asyncHandler(async (req, res) => {
     lastname,
     email,
     isActive,
-    user_id: req.user.id,
   });
   console.log(req.body);
   res.status(201).json(createusers);
@@ -35,12 +34,7 @@ const createUser = asyncHandler(async (req, res) => {
 //@access private
 const updateUser = asyncHandler(async (req, res) => {
   const getById = await users.findById(req.params.id);
-  if (req.user.id !== getById.user_id.toString()) {
-    res.status(403);
-    throw new Error(
-      "You don't have permission to update another user user is "
-    );
-  }
+
   const updateuser = await users.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
@@ -54,12 +48,6 @@ const updateUser = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => {
   const getById = await users.findById(req.params.id);
 
-  if (getById.user_id.toString() !== req.user.id) {
-    res.status(403);
-    throw new Error(
-      "You don't have permission to update another user user is "
-    );
-  }
   const deleteuser = await users.findByIdAndDelete(req.params.id);
 
   res.status(200).send(deleteuser);
