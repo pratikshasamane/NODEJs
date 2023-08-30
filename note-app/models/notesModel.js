@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 
 const schema = mongoose.Schema(
   {
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "validationSchema",
+    },
     title: {
       type: String,
       required: [true, "Please add title"],
