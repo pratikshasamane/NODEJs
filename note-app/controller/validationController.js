@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 
 const register = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const alreadyExist = await validationModel.findOne({ email });
 
@@ -14,13 +14,23 @@ const register = asyncHandler(async (req, res) => {
 
   const newPass = await bcrypt.hash(password, 10);
   const registerUser = await validationModel.create({
+    name: name,
     email: email,
     password: newPass,
   });
 
+  const { _id } = await registerUser.toJSON();
+
+  const token = jwt.sign({ _id: _id }, "secret");
+
+  res.cookie("accessToken", token, {
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000,
+  });
+
   if (registerUser) {
     res.json({
-      message: "User registered!",
+      message: `${registerUser.name} is registered`,
       _id: registerUser.id,
       email: registerUser.email,
     });
@@ -32,7 +42,7 @@ const register = asyncHandler(async (req, res) => {
 // Login
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
+  console.log("hello");
   if (!email || !password) {
     res.status(400).json({ message: "All fields are required!" });
   }
@@ -43,6 +53,7 @@ const login = asyncHandler(async (req, res) => {
     const accessToken = jwt.sign(
       {
         user: {
+          name: user.name,
           email: user.email,
           id: user.id,
         },
@@ -56,7 +67,14 @@ const login = asyncHandler(async (req, res) => {
   }
 });
 
-const current = function (req, res) {
+const current = async function (req, res) {
+  // const cookie = req.cookies["accessToken"];
+  // const claim = jwt.verify(cookie, "secret");
+  // console.log(claim._id);
+
+  // const { password, ...data } = await user.toJSON();
+  // // if (claim) {
+  // // }
   res.json(req.user);
 };
 module.exports = { login, register, current };
