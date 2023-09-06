@@ -52,8 +52,9 @@ const deleteNotes = asyncHandler(async (req, res) => {
 });
 
 const getNoteById = asyncHandler(async (req, res) => {
-  console.log(req.params.id);
+  // const byIdNote = await notes.find({ user_id: req.params.id });
   const byIdNote = await notes.findById(req.params.id);
+
   res.status(200).json(byIdNote);
 });
 

@@ -1,0 +1,32 @@
+{
+  "name": "cron_jobs",
+  "version": "1.0.0",
+  "description": "Used cron jobs to fetch weather data and send it as a email.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pratikshasamane/NodeJS.git"
+  },
+  "keywords": [
+    "cron",
+    "jobs",
+    "weather",
+    "data",
+    "scheduler"
+  ],
+  "author": "Pratiksha Samane - Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratikshasamane/NodeJS/issues"
+  },
+  "homepage": "https://github.com/pratikshasamane/NodeJS#readme",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.5"
+  }
+}
